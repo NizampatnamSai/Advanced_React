@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+
 
 function PostForm() {
 
@@ -12,34 +14,41 @@ function PostForm() {
         setuserId(e.target.value)
        
         }
-    let handleChangeBody=(e)=>{
+    let handleChangeTitle=(e)=>{
             e.preventDefault()    
             settitle(e.target.value)     
       }
 
-    let handleChangeTitle=(e)=>{
+    let handleChangeBody=(e)=>{
      e.preventDefault()
 setbody(e.target.value)
      }
 
 
 let handleSubmit=(e)=>{
-    console.log(e.target)
-}
+    e.preventDefault()
+    // console.log(userid)
+    axios.post('https://jsonplaceholder.typicode.com/posts', {userid,title,body})
 
+    .then(res=>{ console.log(res)
+ 
+
+
+})
+}
   return (
     <div>
     <form onSubmit={handleSubmit}>
     <div> <label>User ID</label>
-            <input type='text' name='userId' value={userid} onChange={handleChangeUser}>
+            <input type='text' value={userid} name={userid} onChange={handleChangeUser}>
             </input>
         </div>
         <div> <label>Title</label>
-            <input type='text' name='userId' value={title} onChange={handleChangeTitle}>
+            <input placeholder='title' value={title} name={title} type='text'  onChange={handleChangeTitle}>
             </input>
         </div>
         <div> <label>body</label>
-            <input type='text' name='body' value={body} onChange={handleChangeBody}>
+            <input type='text' value={body} name={body} onChange={handleChangeBody}>
             </input>
         </div>
         <div>

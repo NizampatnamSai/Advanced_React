@@ -20,11 +20,11 @@ function PostList() {
     <div>
       <h1>List of Posts</h1>
       
-          {posts.map((data)=> { return(
+          {posts.map((data)=> { return( < > 
             
-                 <p>{data.id}</p> 
+                 <p key={data.id}>{data.userId}{")"}<small key={data.id}> {data.id}</small> <b>{data.title}</b> </p>
               
-          )
+              </>  )
 
           })}
       

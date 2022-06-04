@@ -1,10 +1,13 @@
-import PostList from './API/PostList';
+import GetList from './API/GetList';
+import PostForm from './API/PostForm';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-     <PostList/>
+     {/* <GetList/> */}
+     <PostForm/>
+
     </div>
   );
 }

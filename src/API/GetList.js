@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-function PostList() {
+function GetList() {
 
     let [posts,setpost]=useState([])
 
@@ -10,7 +10,7 @@ function PostList() {
         axios.get('https://jsonplaceholder.typicode.com/posts').then(res=>{
             setpost(res.data)
             // console.log(res.data)
-        })
+        }).catch(e=>prompt(e.message))
 
         
     },[])
@@ -32,4 +32,4 @@ function PostList() {
   )
 }
 
-export default PostList
+export default GetList
